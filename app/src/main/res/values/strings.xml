@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">RxJavaRetrofitDemo</string>
+    <!-- Net Error Toast -->
+    <string name="net_error_socket_timeout">连接超时</string>
+    <string name="net_error_connect_lost">连接中断</string>
+    <string name="net_connected_fail">网络不畅&gt;_&lt;</string>
+</resources>
