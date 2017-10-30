@@ -23,10 +23,16 @@ public class MainPresent extends BasePresenter<IMainView>{
         attachView(view);
     }
 
-    public void LoginNet(final String userName, String userPassword){
+    public void LoginNet(final String userName, String userPassword, boolean isCache){
 
 
-        addNetSubScribe(ServiceFactory.getUserService().getQuery(userName, userPassword), new ResponseSubscriber<ResCommon<UserBeanRes>>() {
+        addNetSubScribe(ServiceFactory.getUserService(isCache).getQuery(userName, userPassword), new ResponseSubscriber<ResCommon<UserBeanRes>>() {
+
+            @Override
+            public void onStart() {
+                super.onStart();
+            }
+
             @Override
             protected void success(ResCommon<UserBeanRes> userBeanResResCommon) {
                 Log.v("request", "------------success:" + userBeanResResCommon.toString());
@@ -40,8 +46,8 @@ public class MainPresent extends BasePresenter<IMainView>{
         });
     }
 
-    public void LoginListNet(final String userName, String userPassword){
-        addNetSubScribe(ServiceFactory.getUserService().getListQuery(userName, userPassword), new ResponseSubscriber<ResCommon<List<UserBeanRes>>>() {
+    public void LoginListNet(final String userName, String userPassword, boolean isCache){
+        addNetSubScribe(ServiceFactory.getUserService(isCache).getListQuery(userName, userPassword), new ResponseSubscriber<ResCommon<List<UserBeanRes>>>() {
             @Override
             protected void success(ResCommon<List<UserBeanRes>> listResCommon) {
                 Log.v("request", "------------success:" + listResCommon.getData().size());

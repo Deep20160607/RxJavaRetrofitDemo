@@ -12,6 +12,7 @@ import android.content.Context;
 public class BaseApplication  extends Application {
 
     private static Context appContext;
+    public static boolean isCaches;
 
     @Override
     public void onCreate() {
