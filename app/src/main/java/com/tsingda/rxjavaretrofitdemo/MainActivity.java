@@ -37,8 +37,8 @@ public class MainActivity extends BaseActivity implements IMainView {
         userName = "dupeng";
         userPassword = "123456";
 
-        presenter.LoginNet(userName, userPassword);//不带list
-        presenter.LoginListNet(userName, userPassword);//带list
+        //presenter.LoginNet(userName, userPassword, true);//不带list
+        presenter.LoginListNet(userName, userPassword, true);//带list
     }
 
 
