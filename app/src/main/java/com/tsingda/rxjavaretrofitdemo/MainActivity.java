@@ -14,9 +14,10 @@ import com.tsingda.rxjavaretrofitdemo.ui.activity.BaseActivity;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class MainActivity extends BaseActivity implements IMainView {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @BindView(R.id.tv)
     TextView mTv;
@@ -29,8 +30,8 @@ public class MainActivity extends BaseActivity implements IMainView {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
+
+        Log.v(TAG, "onCreate 执行了。。。");
         this.context = this;
         mTv.setText("Butterknife注解");
         presenter = new MainPresent(this);
@@ -38,7 +39,13 @@ public class MainActivity extends BaseActivity implements IMainView {
         userPassword = "123456";
 
         //presenter.LoginNet(userName, userPassword, true);//不带list
-        presenter.LoginListNet(userName, userPassword, true);//带list
+        //presenter.LoginListNet(userName, userPassword, true);//带list
+    }
+
+    @Override
+    protected int getLayout() {
+        Log.v(TAG, "getLayout 执行了。。。");
+        return R.layout.activity_main;
     }
 
 
